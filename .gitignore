@@ -2,4 +2,5 @@
 .godot/
 .idea
 .opencode
+.env
 /android/

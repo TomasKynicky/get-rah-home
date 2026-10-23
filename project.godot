@@ -14,6 +14,10 @@ config/name="GET_RAH_HOME"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+FunplayMcpRuntimeBridge="*res://addons/funplay_mcp/runtime/funplay_mcp_runtime_bridge.gd"
+
 [display]
 
 window/stretch/mode="canvas_items"
@@ -22,6 +26,10 @@ window/stretch/aspect="expand"
 [dotnet]
 
 project/assembly_name="GET_RAH_HOME"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/funplay_mcp/plugin.cfg")
 
 [physics]
 

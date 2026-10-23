@@ -1,0 +1,16 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "funplay": {
+      "type": "local",
+      "command": [
+        "bash",
+        "-c",
+        "set -a; source .env; exec npx -y funplay-godot-mcp@0.10.1"
+      ],
+      "cwd": ".",
+      "enabled": true,
+      "timeout": 30000
+    }
+  }
+}
