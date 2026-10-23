@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://dd1ib1a8lwd0r"]
+
+[ext_resource type="Script" uid="uid://bexdvhit8wfw" path="res://scripts/main.gd" id="1_main"]
+[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="2_player"]
+[ext_resource type="PackedScene" path="res://scenes/tile_manager.tscn" id="3_tile_manager"]
+
+[sub_resource type="RectangleShape2D" id="BaseGroundShape"]
+size = Vector2(720, 24)
+
+[node name="Main" type="Node2D" unique_id=688293226]
+script = ExtResource("1_main")
+
+[node name="Player" parent="." unique_id=407627288 instance=ExtResource("2_player")]
+z_index = 5
+position = Vector2(360, -35)
+
+[node name="TileManager" parent="." unique_id=1293346971 instance=ExtResource("3_tile_manager")]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=789977820]
+position = Vector2(360, -205)
+position_smoothing_enabled = true
+position_smoothing_speed = 6.0
+
+[node name="BaseGround" type="StaticBody2D" parent="." unique_id=1445429500]
+position = Vector2(360, 12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BaseGround" unique_id=516081658]
+shape = SubResource("BaseGroundShape")
+
+[node name="Visual" type="Polygon2D" parent="BaseGround" unique_id=1783499585]
+z_index = 1
+color = Color(0.08, 0.32, 0.43, 1)
+polygon = PackedVector2Array(-360, -12, 360, -12, 360, 12, -360, 12)
+
+[node name="Edge" type="Line2D" parent="BaseGround" unique_id=1417001721]
+z_index = 2
+points = PackedVector2Array(-360, 0, 360, 0)
+width = 5.0
+default_color = Color(0.36, 0.91, 1, 1)
+
+[node name="BackgroundLayer" type="CanvasLayer" parent="." unique_id=413129696]
+layer = -1
+
+[node name="Background" type="ColorRect" parent="BackgroundLayer" unique_id=162404193]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.83842367, 0.8883608, 0.9484475, 1)
+
+[node name="ResponsiveLayout" type="CanvasLayer" parent="." unique_id=1096423701]
+layer = 1
+
+[node name="PanelRoot" type="Control" parent="ResponsiveLayout" unique_id=861025902]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="LeftPanel" type="ColorRect" parent="ResponsiveLayout/PanelRoot" unique_id=1279830570]
+mouse_filter = 2
+color = Color(0.018, 0.035, 0.065, 1)
+
+[node name="RightPanel" type="ColorRect" parent="ResponsiveLayout/PanelRoot" unique_id=158402131]
+mouse_filter = 2
+color = Color(0.018, 0.035, 0.065, 1)
+
+[node name="TopPanel" type="ColorRect" parent="ResponsiveLayout/PanelRoot" unique_id=1668516238]
+mouse_filter = 2
+color = Color(0.018, 0.035, 0.065, 1)
+
+[node name="BottomPanel" type="ColorRect" parent="ResponsiveLayout/PanelRoot" unique_id=1302306370]
+mouse_filter = 2
+color = Color(0.018, 0.035, 0.065, 1)

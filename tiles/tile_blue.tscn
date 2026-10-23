@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/world_tile.gd" id="1_tile"]
+
+[node name="TileBlue" type="Node2D"]
+script = ExtResource("1_tile")
+tile_width = 720.0
+tile_height = 720.0
+platform_rects = PackedVector4Array(250, 650, 220, 20, 60, 540, 220, 20, 440, 430, 220, 20, 250, 320, 220, 20, 60, 210, 220, 20, 440, 100, 220, 20, 250, 30, 220, 20)
+platform_color = Color(0.08, 0.32, 0.43, 1)

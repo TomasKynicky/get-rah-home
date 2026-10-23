@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://8oqdo23ly1yf"]
+
+[ext_resource type="Script" uid="uid://c0jj8nk6bes2s" path="res://scripts/player_controller.gd" id="1_player"]
+[ext_resource type="Texture2D" uid="uid://2g6y2jtq6fvd" path="res://design/postava.jpg" id="3_qhqgy"]
+[ext_resource type="Shader" path="res://animations/white_key.gdshader" id="3_white_key"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_player"]
+size = Vector2(28, 48)
+
+[sub_resource type="ShaderMaterial" id="WhiteKeyMaterial"]
+shader = ExtResource("3_white_key")
+shader_parameter/white_cutoff = 0.88
+shader_parameter/white_softness = 0.08
+
+[node name="Player" type="CharacterBody2D" unique_id=238326519]
+script = ExtResource("1_player")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2037147800]
+position = Vector2(0, -24)
+shape = SubResource("RectangleShape2D_player")
+
+[node name="VisualRoot" type="Node2D" parent="." unique_id=759109826]
+
+[node name="Aura" type="Polygon2D" parent="VisualRoot" unique_id=1931686134]
+position = Vector2(0, -27)
+color = Color(0.18, 0.9, 1, 0.3)
+polygon = PackedVector2Array(0, -35, 8, -34, 18, -30, 27, -22, 32, -12, 34, 0, 32, 12, 27, 22, 18, 30, 8, 34, 0, 35, -8, 34, -18, 30, -27, 22, -32, 12, -34, 0, -32, -12, -27, -22, -18, -30, -8, -34)
+
+[node name="Body" type="Node2D" parent="VisualRoot" unique_id=1204579769]
+position = Vector2(0, -26)
+
+[node name="CharacterImage" type="Sprite2D" parent="VisualRoot/Body" unique_id=1857974001]
+texture_filter = 1
+material = SubResource("WhiteKeyMaterial")
+scale = Vector2(0.64, 0.96)
+texture = ExtResource("3_qhqgy")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=599181452]
